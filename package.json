@@ -6,7 +6,7 @@
   "scripts": {
     "test":"npx playwright test",
     "allure:serve": "npx allure serve allure-results",
-    "allure:generate": "allure generate allure-results -o allure-report --clean"
+    "allure:generate": "npx allure generate allure-results --clean"
   },
   "keywords": [],
   "author": "",
