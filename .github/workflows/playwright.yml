@@ -1,0 +1,82 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Run Playwright tests
+      run: npx playwright test
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
+
+name: Playwright Tests
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  redmine-tests:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.16.0'
+      - run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: run test
+        run: npm run test 
+      - name: Copy History
+        if: always()
+        run: cp -r ./docs/history/ ./allure-results/history
+      - name: Generate Report
+        if: always()
+        run: npm run allure:generate
+      - name: Upload Results
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: allure-results
+          path: ./allure-results                  
+      - name: Publishing Allure artifact to Github Actions
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: allure-report
+          path: allure-report        
+      - name: Deploy report
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        if: always()
+        with:
+          branch: master 
+          folder: allure-report
+          target-folder: docs
+      - name: Pushes docs to another repository
+        uses: cpina/github-action-push-to-another-repository@v1.3
+        if: always()
+        env:
+          API_TOKEN_GITHUB: ${{ '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' }}
+        with:
+          source-directory: 'docs'
+          destination-github-username: 'SRVFLLN'
+          destination-repository-name: 'Allure-reports'
+          user-email: servefallen@gmail.com 
+          target-branch: main 
