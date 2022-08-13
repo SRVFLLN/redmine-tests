@@ -19,6 +19,9 @@ jobs:
       - name: Copy History
         if: always()
         run: cp -r ./docs/history/ ./allure-results/history/
+      - name: Allure fix
+        run: rm -rf .git/hooks
+        run: npm install
       - name: Generate Report
         if: always()
         run: npx allure generate allure-results -o allure-report --clean
