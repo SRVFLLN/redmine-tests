@@ -1,6 +1,6 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Aug 13 17:28:26 EEST 2022","Sat Aug 13 17:28:51 EEST 2022","24680","chromium","redmine.spec.js","Redmine tests","","","Roadmap,versions and issues",""
 "passed","Sat Aug 13 17:28:26 EEST 2022","Sat Aug 13 17:28:42 EEST 2022","15457","chromium","redmine.spec.js","Redmine tests","","","Search, searching parameters and links to other sites",""
+"passed","Sat Aug 13 17:28:26 EEST 2022","Sat Aug 13 17:28:51 EEST 2022","24680","chromium","redmine.spec.js","Redmine tests","","","Roadmap,versions and issues",""
 "passed","Sat Aug 13 17:28:26 EEST 2022","Sat Aug 13 17:28:53 EEST 2022","26696","chromium","redmine.spec.js","Redmine tests","","","Register, login and account delete",""
 "passed","Sat Aug 13 17:28:42 EEST 2022","Sat Aug 13 17:28:46 EEST 2022","4266","chromium","redmine.spec.js","Redmine tests","","","Guide and localization",""
 "passed","Sat Aug 13 17:28:26 EEST 2022","Sat Aug 13 17:28:42 EEST 2022","15752","chromium","redmine.spec.js","Redmine tests","","","Acivities, issues and download",""
