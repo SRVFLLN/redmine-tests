@@ -14,20 +14,17 @@ jobs:
       - run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      - name: Install Allure comandline
+        run: npm install allure-commandline --save-dev
       - name: run test
         run: npm run test 
       - name: Copy History
         if: always()
         run: cp -r ./docs/history/ ./allure-results/history/
-      - name: Allure fix
-        if: always()
-        run: rm -rf .git/hooks
-      - name: Install
-        if: always()
         run: npm install
       - name: Generate Report
         if: always()
-        run: npx allure generate allure-results -o allure-report --clean
+        run: npm run allure:generate
       - name: Upload Results
         uses: actions/upload-artifact@v1
         if: always()
