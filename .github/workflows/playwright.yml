@@ -15,7 +15,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Install dependencies 
-        run: npm install
+        run: npm i -D @playwright/test allure-playwright
       - name: run test
         run: npm run test 
       - name: Copy History
@@ -47,7 +47,7 @@ jobs:
         uses: cpina/github-action-push-to-another-repository@v1.3
         if: always()
         env:
-          API_TOKEN_GITHUB: ${{ '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' }}
+          API_TOKEN_GITHUB: ${{ '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' }}
         with:
           source-directory: 'docs'
           destination-github-username: 'SRVFLLN'
