@@ -21,7 +21,6 @@ jobs:
       - name: Copy History
         if: always()
         run: cp -r ./docs/history/ ./allure-results/history/
-        run: npm install
       - name: Generate Report
         if: always()
         run: npm run allure:generate
