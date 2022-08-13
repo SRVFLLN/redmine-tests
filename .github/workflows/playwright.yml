@@ -20,8 +20,10 @@ jobs:
         if: always()
         run: cp -r ./docs/history/ ./allure-results/history/
       - name: Allure fix
+        if: always()
         run: rm -rf .git/hooks
       - name: Install
+        if: always()
         run: npm install
       - name: Generate Report
         if: always()
