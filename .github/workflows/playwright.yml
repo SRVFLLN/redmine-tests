@@ -47,7 +47,7 @@ jobs:
         uses: cpina/github-action-push-to-another-repository@main
         if: always()
         env:
-          API_TOKEN_GITHUB: ${{ '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' }}
+          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
           source-directory: docs/
           destination-github-username: 'SRVFLLN'
