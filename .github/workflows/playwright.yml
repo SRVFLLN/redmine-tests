@@ -44,13 +44,14 @@ jobs:
           folder: allure-report
           target-folder: docs
       - name: Pushes docs to another repository
-        uses: cpina/github-action-push-to-another-repository@v1.3
+        uses: cpina/github-action-push-to-another-repository@main
         if: always()
         env:
           API_TOKEN_GITHUB: ${{ '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' }}
         with:
-          source-directory: 'docs'
+          source-directory: docs/
           destination-github-username: 'SRVFLLN'
           destination-repository-name: 'redmine-test-reports'
           user-email: servefallen@gmail.com 
+          commit-message: New reports added
           target-branch: main 
